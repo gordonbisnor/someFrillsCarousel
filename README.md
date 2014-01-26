@@ -1,10 +1,7 @@
 someFrillsCarousel
 ==================
 
-someFrillsCarousel
-=========================
-
-The world still needs more jQuery carousels, so I'm still doing what I can.
+The world needs more jQuery carousels, so I'm doing what I can.
 
 Install
 -------
