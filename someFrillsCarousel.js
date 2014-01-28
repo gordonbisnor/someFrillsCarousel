@@ -36,30 +36,30 @@
 			
 			/* resize window */
 		  $window.resize(function() {
-		    active_item = $this.find("ul.list-unstyled li:visible");
-		    $carousel.height(active_item.height());
+		    var active_item = $this.find("ul.list-unstyled li:visible");
+		    $carousel.height(active_item.outerHeight());
 		  }).resize();
 		  /* end resize window */
 
 
 
 	 		$(document).ready(function(){
-	    	active_item = $this.find("ul.list-unstyled li:visible");
-	    	$carousel.height(active_item.height());
-
+	    	
+	    	var active_item = $this.find("ul.list-unstyled li:visible");
 
 				/* start carousel */
 				if($this.length) {
 				  
 				  /* activate first item on page load */
 			    activateCarouselItem($this.find("ul li.carousel_item").first());
-				    
+					
+	    		$carousel.height(active_item.outerHeight());
+
 			    /* activate first pagination item on page load */
 			    $pagination.find("a").first().addClass('active');
 
 			    /* set carousel in motion */
 			    setInterval(function(){ activateNextCarouselItem() }, carouselDelay);
-
 
 					/* carousel pagination */
 					$(document).on("click", "div.carousel_pagination a", function(){
