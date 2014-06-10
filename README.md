@@ -6,17 +6,20 @@ The world needs more jQuery carousels, so I'm doing what I can.
 Install
 -------
 
-    <script src="someFrillsCarousel.min.js"></script>
+``` html
+<script src="someFrillsCarousel.min.js"></script>
+```
 
 Use
 ---
 
-    <script type="text/javascript">
-        $(document).ready(function(){ 
-          $('.carousel').someFrillsCarousel({delay:6000,speed:750}); 
-        });
-    </script> 
-
+``` html
+<script type="text/javascript">
+    $(document).ready(function(){ 
+      $('.carousel').someFrillsCarousel({delay:6000,speed:750}); 
+    });
+</script> 
+```
 
 Options
 -------
@@ -26,18 +29,21 @@ Options
 HTML Structure 
 --------------
 
-	.carousel
-		.carousel_container
-			%ul
-				%li#item_one item
-				%li#item_two item
-		.carousel_pagination
-			%a{href: '#item_one'} •				
-			%a{href: '#item_two'} •				
+``` haml
+.carousel
+	.carousel_container
+		%ul
+			%li#item_one item
+			%li#item_two item
+	.carousel_pagination
+		%a{href: '#item_one'} •				
+		%a{href: '#item_two'} •				
+```
 
 CSS
 ---
 
+``` scss
 	.carousel {
 		ul {
 			width: 100%;
@@ -53,3 +59,4 @@ CSS
 			}
 		}
 	}
+```
