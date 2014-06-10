@@ -44,19 +44,19 @@ CSS
 ---
 
 ``` scss
-	.carousel {
-		ul {
+.carousel {
+	ul {
+		width: 100%;
+		height: auto;
+		position: relative;
+		li.carousel_item {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
 			height: auto;
-			position: relative;
-			li.carousel_item {
-				display: none;
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: auto;
-			}
 		}
 	}
+}
 ```
