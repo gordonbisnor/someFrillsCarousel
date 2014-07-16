@@ -23,8 +23,8 @@ Use
 
 Options
 -------
-- Delay - integer, milliseconds, delay between slides, default: 6000
-- Speed - integer, milliseconds, transition speed, default: 750 
+- Delay - integer, milliseconds, delay between slides, default: 7500
+- Speed - integer, milliseconds, transition speed, default: 2000 
 
 HTML Structure 
 --------------

@@ -1,17 +1,18 @@
 /*!
-	SomeFrillsCarousel v1.0 - 2014-01-26
+	someFrillsCarousel v1.0 - 2014-01-26
 	Simple carousel with pagination, delay and speed settings
 	(c) 2014 Gordon B. Isnor - http://github.com/someFrillsCarousel
 */
 (function($) {
 
-  $.fn.SomeFrillsCarousel = function(args) {
+  $.fn.someFrillsCarousel = function(args) {
 
     return $(this).each(function () {
 
     	/* config */
-			var carouselDelay = args.delay || 6000; /* delay between slides in milliseconds */
-			var carouselTransitionSpeed = args.speed || 750; /* transition speed in milliseconds */
+  		var carouselDelay = args && args.delay ? args.delay : 7500 ;
+			var carouselTransitionSpeed = args && args.speed ? args.speed : 2000; /* transition speed in milliseconds */
+
       /* end config */
 
 
