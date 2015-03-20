@@ -1,7 +1,7 @@
 {
   "name": "some-frills-carousel",
   "main": "someFrillsCarousel.js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/gordonbisnor/someFrillsCarousel",
   "authors": [
     "Gordon B. Isnor <gordonbisnor@gmail.com>"
