@@ -10,6 +10,12 @@ Install
 <script src="someFrillsCarousel.min.js"></script>
 ```
 
+or
+
+`` bash
+bower install some-frills-carousel
+```
+
 Use
 ---
 
