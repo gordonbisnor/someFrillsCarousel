@@ -12,7 +12,7 @@ Install
 
 or
 
-`` bash
+``` bash
 bower install some-frills-carousel
 ```
 
