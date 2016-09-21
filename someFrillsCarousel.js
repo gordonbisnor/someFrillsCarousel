@@ -1,5 +1,5 @@
 /*!
-  someFrillsCarousel 0.0.1 - 2014-01-26
+  someFrillsCarousel 0.0.2 - 2016-09-21
   Simple carousel with pagination, delay and speed settings
   (c) 2014 Gordon B. Isnor - http://github.com/someFrillsCarousel
 */
