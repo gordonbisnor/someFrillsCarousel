@@ -20,6 +20,7 @@
       /* setup vars */
       var $this = $(this);
       var $carousel = $this.find('div.carousel_container');
+      var $numberOfItems = $this.find('ul.list-unstyled li.carousel_item').length;
       var $pagination = $this.find('div.carousel_pagination');
       var $window = $(window);
       /* end setup vars */
@@ -59,30 +60,33 @@
           /* activate first pagination item on page load */
           $pagination.find("a").first().addClass('active');
 
-          /* set carousel in motion */
-          setInterval(function () { activateNextCarouselItem(); }, carouselDelay);
+          if ($numberOfItems > 1) {
+            /* set carousel in motion */
+            setInterval(function () { activateNextCarouselItem(); }, carouselDelay);
 
-          /* carousel pagination */
-          $(document).on("click", "div.carousel_pagination a", function () {
-            if ($(this).hasClass('active')) { return false; }
-            $pagination.find("a").removeClass('active');
+            /* carousel pagination */
+            $(document).on("click", "div.carousel_pagination a", function () {
+              if ($(this).hasClass('active')) { return false; }
+              $pagination.find("a").removeClass('active');
 
-            /* can use either href pointing at carousel item id or data-carousel-target="x" pointing at data-carousel-item="x" */
+              /* can use either href pointing at carousel item id or data-carousel-target="x" pointing at data-carousel-item="x" */
 
-            var href = $(this).attr('href');
-            var target = '';
+              var href = $(this).attr('href');
+              var target = '';
 
-            if (href !== null && href != '#') { 
-              target = href; 
-            } else { 
-              target = $(this).data('carousel-target'); 
-              target = '[data-carousel-item="' + target + '"]';
-            }
+              if (href !== null && href != '#') { 
+                target = href; 
+              } else { 
+                target = $(this).data('carousel-target'); 
+                target = '[data-carousel-item="' + target + '"]';
+              }
 
-            activateCarouselItem($(target));
-            $(this).addClass('active');
-            return false;
-          });
+             activateCarouselItem($(target));
+              $(this).addClass('active');
+              return false;
+            });
+          }
+
 
 
         }
