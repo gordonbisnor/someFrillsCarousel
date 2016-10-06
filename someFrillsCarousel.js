@@ -1,5 +1,5 @@
 /*!
-  someFrillsCarousel 0.0.2 - 2016-09-21
+  someFrillsCarousel 0.0.2 - 2014-01-26
   Simple carousel with pagination, delay and speed settings
   (c) 2014 Gordon B. Isnor - http://github.com/someFrillsCarousel
 */
@@ -10,11 +10,16 @@
     return $(this).each(function () {
 
       /* config */
+      
       var carouselDelay = args && args.delay ? args.delay : 7500;
+      
       var carouselTransitionSpeed = args && args.speed ? args.speed : 2000; /* transition speed in milliseconds */
-
+      
+      var useImgNaturalHeight = args && args.useImgNaturalHeight ? args.useImgNaturalHeight : false;
+      
+      var autoScroll = args && args.autoScroll === false ? false : true;
+      
       /* end config */
-
 
 
       /* setup vars */
@@ -35,11 +40,26 @@
       /* end activate carousel */
 
 
+      function setHeight(active_item, carousel) {
+
+        if (useImgNaturalHeight) {
+
+          var img = active_item.find('img').first()[0];
+
+          if (img !== undefined) { 
+            carousel.height(img.naturalHeight); 
+          }
+
+        } else {
+          carousel.height(active_item.outerHeight());  
+        }
+
+      }
 
       /* resize window */
       $window.resize(function () {
         var active_item = $this.find("ul.list-unstyled li:visible");
-        $carousel.height(active_item.outerHeight());
+        setHeight(active_item, $carousel);
       }).resize();
       /* end resize window */
 
@@ -55,14 +75,14 @@
           /* activate first item on page load */
           activateCarouselItem($this.find("ul li.carousel_item").first());
 
-          $carousel.height(active_item.outerHeight());
+          setHeight(active_item, $carousel);
 
           /* activate first pagination item on page load */
           $pagination.find("a").first().addClass('active');
 
           if ($numberOfItems > 1) {
-            /* set carousel in motion */
-            setInterval(function () { activateNextCarouselItem(); }, carouselDelay);
+            
+            startAutoscrollIfRequested();
 
             /* carousel pagination */
             $(document).on("click", "div.carousel_pagination a", function () {
@@ -92,14 +112,19 @@
         }
       /* end start carousel */
 
-
       });
 
 
+      function startAutoscrollIfRequested () {
+        /* set carousel in motion */
+        if (autoScroll) {
+          setInterval(function () { activateNextCarouselItem(); }, carouselDelay);  
+        }
+      }
 
 
       /* start activateNextCarouselItem */
-      function activateNextCarouselItem() {
+      function activateNextCarouselItem () {
 
         if ($this.find("ul li.carousel_item:last").hasClass('active')) {
 

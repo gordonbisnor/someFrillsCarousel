@@ -29,8 +29,10 @@ Use
 
 Options
 -------
-- Delay - integer, milliseconds, delay between slides, default: 7500
-- Speed - integer, milliseconds, transition speed, default: 2000 
+- carouselDelay - integer, milliseconds, delay between slides, default: 7500
+- carouselTransitionSpeed - integer, milliseconds, transition speed, default: 2000 
+- useImgNaturalHeight - boolean, default: false –– for an image only carousel, sets height based on naturalHeight of image
+- autoScroll - boolean, default: true
 
 HTML Structure 
 --------------
